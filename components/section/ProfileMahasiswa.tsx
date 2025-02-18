@@ -357,12 +357,11 @@ export default function ProfileSection() {
 
 									{/* Slider */}
 									<div className="w-full px-4 lg:px-12">
-										<div className="w-full lg:w-1/3 h-[200px] sm:h-[250px] lg:h-[300px] mx-auto lg:ml-0">
+										<div className="w-40 mt-40 md:mt-0 md:w-1/3 h-[200px] sm:h-[250px] lg:h-[300px] lg:ml-0">
 											<ImageSlider
 												slides={studentSlides}
 												onSlideChange={handleSlideChange}
 												autoPlayInterval={5000}
-												showControls={true}
 											/>
 										</div>
 									</div>

@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type Slide = {
   image: string;
@@ -16,14 +15,12 @@ type ImageSliderProps = {
   slides: Slide[];
   onSlideChange?: (slide: Slide) => void;
   autoPlayInterval?: number;
-  showControls?: boolean;
 };
 
 export default function ImageSlider({
   slides,
   onSlideChange,
-  autoPlayInterval = 5000,
-  showControls = false,
+  autoPlayInterval = 8000,
 }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -67,10 +64,6 @@ export default function ImageSlider({
     paginate(1);
   }, [paginate]);
 
-  const goToSlide = useCallback((index: number) => {
-    setDirection(index > currentIndex ? 1 : -1);
-    setCurrentIndex(index);
-  }, [currentIndex]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -140,47 +133,6 @@ export default function ImageSlider({
         </motion.div>
       </AnimatePresence>
 
-      {showControls && (
-        <>
-          <button
-            onClick={goToPrevious}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 
-                     bg-white/50 backdrop-blur-sm
-                     p-1 sm:p-2 rounded-full 
-                     transition-all hover:bg-white/75 
-                     focus:outline-none focus:ring-2 focus:ring-white
-                     hover:scale-110"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
-          </button>
-          <button
-            onClick={goToNext}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 
-                     bg-white/50 backdrop-blur-sm
-                     p-1 sm:p-2 rounded-full 
-                     transition-all hover:bg-white/75 
-                     focus:outline-none focus:ring-2 focus:ring-white
-                     hover:scale-110"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
-          </button>
-
-          <div className="absolute bottom-16 left-0 right-0 flex justify-center space-x-1.5 sm:space-x-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all
-                          ${index === currentIndex ? "bg-white scale-125" : "bg-white/50"} 
-                          hover:bg-white focus:outline-none focus:ring-2 focus:ring-white`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
     </div>
   );
 }
