@@ -95,7 +95,7 @@ export default function ProjectsGrid() {
 	}
 
 	return (
-		<section className="py-24 bg-gradient-to-b from-background to-background/50 transition-colors duration-300">
+		<section className="py-24 bg-gradient-to-b from-background to-background/50 transition-colors duration-300" id="projects">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<motion.div
 					className="text-center mb-16"
@@ -103,7 +103,7 @@ export default function ProjectsGrid() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 				>
-					<h2 className="text-4xl font-bold text-foreground sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+					<h2 className="text-4xl font-bold sm:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
 						Our Work
 					</h2>
 					<p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">

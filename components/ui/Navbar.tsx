@@ -54,11 +54,11 @@ const Navbar = () => {
 					</div>
 					<div className="hidden md:block">
 						<div className="ml-10 flex items-baseline space-x-4">
-							<NavLink href="/">Home</NavLink>
-							<NavLink href="/about">About Us</NavLink>
-							<NavLink href="/gallery">Gallery</NavLink>
-							<NavLink href="/projects">Projects</NavLink>
-							<NavLink href="/profile">Profile</NavLink>
+							<NavLink href="/#">Home</NavLink>
+							<NavLink href="/#about">About Us</NavLink>
+							<NavLink href="/#gallery">Gallery</NavLink>
+							<NavLink href="/#projects">Projects</NavLink>
+							<NavLink href="/#profile">Profile</NavLink>
 						</div>
 					</div>
 					<div className="flex items-center">
@@ -101,25 +101,25 @@ const Navbar = () => {
 							Home
 						</MobileNavLink>
 						<MobileNavLink
-							href="/about"
+							href="/#about"
 							toggleMenu={toggleMenu}
 						>
 							About Us
 						</MobileNavLink>
 						<MobileNavLink
-							href="/gallery"
+							href="/#gallery"
 							toggleMenu={toggleMenu}
 						>
 							Gallery
 						</MobileNavLink>
 						<MobileNavLink
-							href="/projects"
+							href="/#projects"
 							toggleMenu={toggleMenu}
 						>
 							Projects
 						</MobileNavLink>
 						<MobileNavLink
-							href="/profile"
+							href="/#profile"
 							toggleMenu={toggleMenu}
 						>
 							Profile

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 // Animation variants
 const footerVariants = {
@@ -97,7 +98,7 @@ export default function Footer() {
 	}
 
 	return (
-		<footer className="bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
+		<footer className="bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 transition-colors duration-300" id='footer'>
 			{/* Main footer */}
 			<motion.div
 				initial="hidden"
@@ -114,16 +115,22 @@ export default function Footer() {
 						className="md:col-span-2"
 					>
 						<div className="flex items-center gap-3 mb-5">
-							<div className="h-10 w-10 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-400/20 dark:shadow-blue-700/30">
-								<span className="text-white text-xl font-bold">E</span>
+							<div className="h-10 w-10 rounded-lg bg-gradient-to-tr justify-center shadow-lg shadow-blue-400/20 dark:shadow-blue-700/30">
+								<Image
+									alt="E-C0de"
+									src="/assets/images/Logo.jpg"
+									content="fit"
+									width={80}
+									height={80}
+								/>
 							</div>
 							<span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 text-transparent bg-clip-text">
-								EduConnect
+								E-C0de
 							</span>
 						</div>
 						<p className="text-gray-600 dark:text-gray-400 mb-6">
-							Empowering students with innovative educational resources and
-							connecting them with opportunities in the tech industry.
+							E-C0de is made with our partner while we are in PKL, and my
+							partner is 7 people.
 						</p>
 						<button
 							onClick={toggleTheme}
@@ -338,7 +345,7 @@ export default function Footer() {
 							className="mb-4 md:mb-0"
 						>
 							<p className="text-gray-600 dark:text-gray-400 text-sm">
-								&copy; {year} EduConnect. All rights reserved.
+								&copy; {year} E-C0de. All rights reserved.
 							</p>
 						</motion.div>
 						<motion.div

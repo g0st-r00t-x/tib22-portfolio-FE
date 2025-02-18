@@ -33,13 +33,18 @@ export default function About() {
 			initial="hidden"
 			animate="visible"
 		>
-			<div className="max-w-7xl mx-auto">
-				<h1
-					className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white"
-					data-aos="fade-down"
-				>
-					About Us
-				</h1>
+			<div className="max-w-7xl mx-auto" id="about">
+				<div className="mb-12 md:mb-16 space-y-4 mt-20">
+					<h1
+						className="text-4xl font-bold text-center text-gray-800 dark:text-white"
+						data-aos="fade-down"
+					>
+						Tentang Kami
+					</h1>
+					<p className="text-xl text-center text-gray-600 dark:text-white">
+						Kelas kami adalah kelas unggulan & humoris.
+					</p>
+				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					<div data-aos="fade-right">
 						<Image
@@ -52,10 +57,16 @@ export default function About() {
 					</div>
 					<div data-aos="fade-left">
 						<h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">
-							Our University
+							Kelas Kami
 						</h2>
 						<p className="text-gray-700 dark:text-gray-300 mb-4">
-							Lorem ipsum dolor sit amet...
+							Sejak masa awal perkembangannya hingga saat ini, Pondok Pesantren
+							Annuqayah telah melakukan terobosan pendidikan yang menegaskan
+							landasan epistemologi keilmuan yang terbuka. Visi keilmuan
+							Annuqayah yang juga diilhami oleh salah satu kitab karya
+							Jalaluddin Assuyuthi yang berjudul Itmam al-Dirayah li- Qurra’
+							al-Nuqayah ini mendorong munculnya upaya pengembangan dan
+							pembaruan pendidikan di berbagai aspek, termasuk kelembagaan.
 						</p>
 						<p className="text-gray-700 dark:text-gray-300 mb-4">
 							Duis aute irure dolor in reprehenderit...

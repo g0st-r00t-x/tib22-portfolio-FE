@@ -29,7 +29,7 @@ export default function Hero() {
 	};
 
 	return (
-		<main className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-black dark:to-indigo-950">
+		<main className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-black dark:to-indigo-950" id='home'>
 			<TechAnimation />
 			<motion.div
 				className="text-center z-10"

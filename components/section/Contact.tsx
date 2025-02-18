@@ -77,7 +77,7 @@ export default function ContactFormSection() {
 	}
 
 	return (
-		<section className="py-20 bg-gradient-to-b from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-gray-900 transition-colors duration-300">
+		<section className="py-20 bg-gradient-to-b from-indigo-50 to-purple-50 dark:from-indigo-950 dark:to-gray-900 transition-colors duration-300" id="contact">
 			<div className="container mx-auto px-4">
 				{/* Section heading */}
 				<motion.div

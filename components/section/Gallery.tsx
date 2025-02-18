@@ -93,7 +93,7 @@ export default function GallerySection() {
 	}
 
 	return (
-		<section className="py-20 mt-20 bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950 transition-colors duration-300">
+		<section className="py-20 mt-20 bg-gradient-to-b from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950 transition-colors duration-300" id="gallery">
 			<div className="container mx-auto px-4">
 				{/* Section heading */}
 				<motion.div
@@ -104,11 +104,11 @@ export default function GallerySection() {
 					className="text-center mb-16"
 				>
 					<h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 text-transparent bg-clip-text">
-						Our Activities
+						Aktivitas Kami
 					</h2>
 					<p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
 						Explore some highlights from our recent events, workshops, and
-						activities. Join us at our next event!
+						activities.
 					</p>
 				</motion.div>
 

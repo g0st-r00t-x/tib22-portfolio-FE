@@ -4,22 +4,22 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ImageSlider from "@/components/ui/ImageSlider";
-import { ChevronDown } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 // Student profile slides data
 const studentSlides = [
 	{
-		image: "/assets/images/Gambar1.jpg",
-		background: "/assets/images/Gambar1.jpg",
-		name: "John Doe",
-		role: "Web Developer",
+		image: "/assets/images/iqmam.jpg",
+		background: "/assets/images/iqmam.jpg",
+		name: "Iqmam",
+		role: "Behind the Scanes",
 	},
 	{
-		image: "/assets/images/Gambar2.jpeg",
-		background: "/assets/images/Gambar2.jpeg",
-		name: "Jane Smith",
-		role: "UX Designer",
+		image: "/assets/images/royhan-as.jpg",
+		background: "/assets/images/royhan-as.jpg",
+		name: "Moh. Royhan AS",
+		role: "Full Stack Developer",
 	},
 	{
 		image: "/assets/images/Gambar3.png",
@@ -28,18 +28,13 @@ const studentSlides = [
 		role: "Full Stack Developer",
 	},
 	{
-		image: "/placeholder.svg?height=600&width=400&text=Project+4",
-		background: "/placeholder.svg?height=1080&width=1920&text=Background+4",
+		image: "/assets/images/Gambar2.jpeg",
+		background: "/assets/images/Gambar2.jpeg",
 		name: "Emily Brown",
 		role: "Graphic Designer",
 	},
 ];
 
-const fadeInUp = {
-	initial: { opacity: 0, y: 20 },
-	animate: { opacity: 1, y: 0 },
-	exit: { opacity: 0, y: -20 },
-};
 
 const staggerContainer = {
 	animate: {
@@ -47,6 +42,29 @@ const staggerContainer = {
 			staggerChildren: 0.1,
 		},
 	},
+};
+
+// Animation variants
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  exit: { opacity: 0, y: -60, transition: { duration: 0.4, ease: 'easeIn' } }
+};
+
+const staggerChildrenVariants = {
+  initial: { opacity: 0 },
+  animate: { 
+    opacity: 1,
+    transition: { 
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const itemVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
 };
 
 interface interfaceSlide{
@@ -74,7 +92,7 @@ export default function ProfileSection() {
 	}
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-black dark:to-blue-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 ease-in-out pb-12">
+		<div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-black dark:to-blue-950 text-gray-900 dark:text-gray-100 transition-colors duration-300 ease-in-out pb-12" id="profile">
 			{/* Navigation Tabs */}
 			<div className="container mx-auto px-4 pt-16">
 				<motion.div
@@ -109,35 +127,153 @@ export default function ProfileSection() {
 							animate="animate"
 							exit="exit"
 							variants={fadeInUp}
-							className="max-w-4xl mx-auto text-center mb-16"
+							className="max-w-5xl mx-auto text-center px-4 my-20"
 						>
-							<h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 text-transparent bg-clip-text">
-								Our University
-							</h2>
-							<div className="relative w-full h-[300px] mb-8 rounded-xl overflow-hidden shadow-xl">
-								<Image
-									src="/assets/images/university.jpg"
-									alt="University Campus"
-									fill
-									className="object-cover"
-									priority
-								/>
-							</div>
-							<p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-								Our university stands as a beacon of academic excellence and
-								innovation. Founded on principles of inclusive education and
-								cutting-edge research, we pride ourselves on nurturing the next
-								generation of leaders and innovators.
-							</p>
-							<Link
-								href="https://ua.ac.id/"
-								className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+							<motion.div
+								key="university"
+								initial="initial"
+								animate="animate"
+								exit="exit"
+								variants={fadeInUp}
+								className="max-w-7xl mx-auto px-4 my-20"
 							>
-								Lebih lanjut tentang Universitas Kami
-								<ChevronDown className="w-4 h-4" />
-							</Link>
+								<motion.h2
+									variants={itemVariants}
+									className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 text-transparent bg-clip-text text-center"
+								>
+									Universitas Kami
+								</motion.h2>
+							</motion.div>
+
+							<motion.div
+									variants={itemVariants}
+									className="relative w-full h-[400px] mb-16 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
+								>
+									<Image
+										src="/assets/images/university.jpg"
+										alt="University Campus"
+										objectFit="cover"
+										fill
+										className="object-cover transform transition-transform duration-1000 hover:scale-105"
+										priority
+									/>
+							</motion.div>
+
+							<motion.p
+								variants={itemVariants}
+								className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto"
+							>
+								Visi keilmuan Annuqayah yang juga diilhami oleh salah satu kitab
+								karya Jalaluddin Assuyuthi yang berjudul Itmam al-Dirayah
+								li-Qurra&apos; al-Nuqayah ini mendorong munculnya upaya pengembangan
+								dan pembaruan pendidikan di berbagai aspek, termasuk
+								kelembagaan.
+							</motion.p>
+
+							<motion.div
+								variants={staggerChildrenVariants}
+								className="space-y-16 mb-16"
+							>
+								{/* Visi Section */}
+								<motion.div
+									variants={itemVariants}
+									className="max-w-3xl mx-auto"
+								>
+									<h3 className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+										VISI
+									</h3>
+									<div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+										<p className="text-gray-700 dark:text-gray-300 text-lg">
+											Menjadi pusat pengembangan sains dan teknologi berbasis
+											nilai-nilai pesantren untuk kemajuan Islam Ahlussunnah wal
+											Jama&Apos;ah dan kemaslahatan bangsa pada tahun 2025
+										</p>
+									</div>
+								</motion.div>
+
+								{/* Misi Section */}
+								<motion.div
+									variants={itemVariants}
+									className="max-w-3xl mx-auto"
+								>
+									<h3 className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+										MISI
+									</h3>
+									<div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+										<ol className="text-gray-700 dark:text-gray-300 text-lg text-left list-decimal pl-6 space-y-4">
+											<li>
+												Menyelenggarakan pendidikan dan pengajaran baik teori
+												maupun praktik dengan muatan kurikulum untuk mewujudkan
+												penguasaan sains dan teknologi berlandaskan nilai-nilai
+												pesantren.
+											</li>
+											<li>
+												Melaksanakan penelitian yang berorientasi pada
+												pengembangan sains dan teknologi berlandaskan
+												nilai-nilai pesantren.
+											</li>
+											<li>
+												Melakukan pengabdian kepada masyarakat dalam
+												pengembangan sains dan teknologi berlandaskan
+												nilai-nilai pesantren untuk kemaslahatan bangsa.
+											</li>
+											<li>
+												Menjalin kerjasama dengan institusi dalam dan luar
+												negeri dalam penguatan pengembangan sains dan teknologi
+												yang berlandaskan nilai-nilai pesantren.
+											</li>
+										</ol>
+									</div>
+								</motion.div>
+
+								{/* Tujuan Section */}
+								<motion.div
+									variants={itemVariants}
+									className="max-w-3xl mx-auto"
+								>
+									<h3 className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+										TUJUAN
+									</h3>
+									<div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+										<ol className="text-gray-700 dark:text-gray-300 text-lg text-left list-decimal pl-6 space-y-4">
+											<li>
+												Terselenggaranya pendidikan dan pengajaran baik teori
+												maupun praktik dengan muatan kurikulum untuk mewujudkan
+												penguasaan sains dan teknologi berlandaskan nilai-nilai
+												pesantren yang mengarah pada isu lingkungan hidup.
+											</li>
+											<li>
+												Terlaksananya penelitian yang berorientasi pada
+												pengembangan sains dan teknologi berlandaskan
+												nilai-nilai pesantren.
+											</li>
+											<li>
+												Terwujudnya pengabdian kepada masyarakat dalam
+												pengembangan sains dan teknologi berlandaskan
+												nilai-nilai pesantren untuk kemaslahatan bangsa.
+											</li>
+											<li>
+												Terjalinnya kerjasama dengan institusi dalam dan luar
+												negeri dalam penguatan pengembangan sains dan teknologi
+												yang berlandaskan nilai-nilai pesantren.
+											</li>
+										</ol>
+									</div>
+								</motion.div>
+							</motion.div>
+
+							<motion.div variants={itemVariants}>
+								<Link
+									href="https://ua.ac.id/"
+									className="inline-flex items-center gap-2 px-8 py-3 text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+								>
+									Lebih lanjut tentang Universitas Kami
+									<ChevronRight className="w-5 h-5" />
+								</Link>
+							</motion.div>
 						</motion.div>
 					)}
+					
 
 					{activeSection === "class" && (
 						<motion.div
@@ -149,7 +285,7 @@ export default function ProfileSection() {
 							className="max-w-4xl mx-auto text-center mb-16"
 						>
 							<h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-400 dark:to-blue-400 text-transparent bg-clip-text">
-								Our Class
+								Kelas Kami
 							</h2>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
 								<div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl backdrop-blur-sm shadow-lg">
@@ -189,7 +325,7 @@ export default function ProfileSection() {
 							className="max-w-6xl mx-auto mb-12"
 						>
 							<h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 text-transparent bg-clip-text">
-								Our Students
+								Para Mahasiswa
 							</h2>
 
 							<div className="relative min-h-[600px] flex flex-col rounded-xl overflow-hidden shadow-xl">
